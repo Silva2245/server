@@ -1,0 +1,20 @@
+GET /browse HTTP/2
+Host: www.netflix.com
+Cookie: nfvdid=BQFmAAEBEF6JmsTeLkWmuQ-nO056TCZgFlYhI7sO1NhkVbsz0k5jh7NAQOBP3tRxuVxRWz0l40yy6iPTKVPAKmql2REUXzATRkbM2YiWwRKIjOz98hxH4jJFFA2tgJkCD1rWjO_9MCFN6Jo2unuesyPcnlj-aV46; pas=%7B%22supplementals%22%3A%7B%22muted%22%3Afalse%7D%7D; OptanonConsent=isGpcEnabled=0&datestamp=Thu+Oct+03+2024+10%3A43%3A53+GMT%2B0300+(Eastern+European+Summer+Time)&version=202407.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=2aa3bf79-2e0f-4e40-9474-bfad82982ae7&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&AwaitingReconsent=false; flwssn=5fe08212-4e26-461b-9173-5a7ed45a4cf3; SecureNetflixId=v%3D3%26mac%3DAQEAEQABABS10p-TagENyXrF3efQntDWY2SRfR2xUFE.%26dt%3D1728031119426; NetflixId=ct%3DBgjHlOvcAxKnAzAMz95HwZqCLkJWcXnP_99FaR1PNx9bOlmJ2yhDu2wCVlDR8zd6pivzypSQ_iZJLxFUZGK_hJs75rSa3QXffNILkF-mlwJDFzkG8CGBW3JaAMXM0eXfzqJyAF3CVui7nR--itApnM0ycjUKxLtGgJnAkJjDIyIG8y__W4uKo1rTWkYgpq1_Hz3nHZ6ulvj3MeqnwxaK8dRUxAuFNFfVcZ-P3cJQXL-_b1omaRxhRLDm-KioFCiG26ifo-x8zogeGYa_ue99bCft79EqRCVyppm_mDUtdRICSuZJe1ZF9o8E9miv5kqxroS15LLUCJAGp57U0247e6g-KibHm4FN7Z75HPKN9yyDTixZLTXyaGB6AfwjpeFfkuuf3-L94PKC-6EIc7EVj6621ikhzyWhRKEy7i4_mYzIdcBEJDp9OPCFaUU5YQSsMDuZHOzjFFgvnpnUjm6Vx7e5CaXCa33w9eumzo5aPDlkTab2oKMb33G6vWIgLIR_EGgY0_Drh-pJM7F-7zQsahmq0ZpSZiK_FoIv1RhMZlfscOu6invmkKE3-SMBULwShhgGIg4KDK-qwwMFgqC0cJWaLg..%26ch%3DAQEAEAABABQBoClcwerER8Nx0rTj3KFXa3GqVbaHsB0.%26v%3D3
+Accept-Language: en-US,en;q=0.9
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.120 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Sec-Ch-Ua: "Not;A=Brand";v="24", "Chromium";v="128"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Sec-Ch-Ua-Platform-Version: ""
+Sec-Ch-Ua-Model: ""
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+
