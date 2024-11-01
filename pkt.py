@@ -22,13 +22,6 @@ def ping(ipad):
     except Exception as ex:
         return False
 
-def myip():
-    net = psutil.net_if_addrs()
-    n1 = net['wlp2s0']
-    n2 = n1[0]
-    n3 = n2.address
-    return n3
-
 def inj(victim): #victim pc injection
     dstt = mp
     srcc = str(victim)
@@ -47,7 +40,7 @@ def inj(victim): #victim pc injection
 def strip(chosenpacket):
     print()
 
-mp = myip()
+mp = '192.168.1.2'
 pkts1 = None
 pkts2 = None
 c = str(input('$silva> '))
