@@ -1,5 +1,5 @@
-import selenium.webdriver as s
+from requests import *
 
-d = s.Chrome()
-r = d.get('https://www.google.com')
-print(str(r))
+urll = str(input('ENTER URL : '))
+
+r = get(url=urll)

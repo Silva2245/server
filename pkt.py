@@ -40,7 +40,7 @@ def inj(victim): #victim pc injection
 def strip(chosenpacket):
     print()
 
-mp = '192.168.1.2'
+mp = '192.168.1.3'
 pkts1 = None
 pkts2 = None
 c = str(input('$silva> '))
