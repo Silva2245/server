@@ -36,11 +36,16 @@ def inj(victim): #victim pc injection
     req = Raw(reqdata())
     pkt = ips/tcps/req
     sr1(pkt, timeout=3, verbose=False)
+    
+def myip():
+    arps = ARP()
+    res = arps.psrc
+    return res
 
 def strip(chosenpacket):
     print()
 
-mp = '192.168.1.3'
+mp = myip()
 pkts1 = None
 pkts2 = None
 c = str(input('$silva> '))
@@ -57,11 +62,14 @@ while c != 'exit':
             addrs = [f'192.168.1.{str(x)}' for x in range(0, 256)]
             arps = ARP()
             for x in addrs:
-                p = ping(x)
-                if p == True:
-                    arps.pdst = x
-                    r = sr1(arps, timeout=3, verbose=False)
-                    print(r.psrc + ' => ' + r.hwsrc)
+                try:
+                    p = ping(x)
+                    if p == True:
+                        arps.pdst = x
+                        r = sr1(arps, timeout=3, verbose=False)
+                        print(r.psrc + ' => ' + r.hwsrc)
+                except Exception as ee:
+                    print('#\r')
         elif c.startswith('ping'):
             addr = c.replace('ping ', '')
             r = ping(addr)
@@ -72,7 +80,7 @@ while c != 'exit':
         elif c == 'myip':
             print(mp)
         elif c == 'clear':
-            os.system('clear')
+            os.system('cls')
         elif c.startswith('get'):
             l = c.replace('get ', '')
             l2 = l.split('/')
