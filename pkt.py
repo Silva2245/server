@@ -30,11 +30,7 @@ def inj(victim): #victim pc injection
     akn = sr1(ips/tcps, timeout=3, verbose=False)
     tcps.src = akn[TCP].dport
     tcps.dport = akn[TCP].sport
-    req = HTTP()/HTTPRequest()
-    f = open('inject.txt', 'r')
-    reqdata = f.read()
-    req = Raw(reqdata())
-    pkt = ips/tcps/req
+    pkt = ips/tcps
     sr1(pkt, timeout=3, verbose=False)
     
 def myip():
