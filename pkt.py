@@ -38,6 +38,12 @@ def myip():
     res = arps.psrc
     return res
 
+def sp(vfrom, vto):
+    print()
+    
+def spoof(victim, gatway):
+    print()
+
 def strip(chosenpacket):
     print()
 
@@ -57,6 +63,7 @@ while c != 'exit':
         elif c == 'network':
             addrs = [f'192.168.1.{str(x)}' for x in range(0, 256)]
             arps = ARP()
+            cnt = 0
             for x in addrs:
                 try:
                     p = ping(x)
@@ -65,7 +72,11 @@ while c != 'exit':
                         r = sr1(arps, timeout=3, verbose=False)
                         print(r.psrc + ' => ' + r.hwsrc)
                 except Exception as ee:
-                    print('#\r')
+                    cnt += 1
+                    if cnt < 10:
+                        continue
+                    else:
+                        break
         elif c.startswith('ping'):
             addr = c.replace('ping ', '')
             r = ping(addr)
