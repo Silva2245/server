@@ -34,6 +34,10 @@ c = str(input(v+'> '))
 try:
    while True:
        spoof(v, g)
-       time.sleep(3)
+       #conf.sniff_promisc = True
+       #ss = sniff(filter='ip dst '+v, count=5)
+       #for s in ss:
+       #    print(str(s))
+       time.sleep(6)
 except Exception as e:
     print('THE PROBLEM IS : ' + e)
