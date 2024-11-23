@@ -46,3 +46,6 @@ while str(msg) != 'exit':
         msg = bytes(message).decode('ascii')
     except Exception as e:
         print('the problem is : ' + str(e))
+        sys.exit(0)
+
+sys.exit(0)
