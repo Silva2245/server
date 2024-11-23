@@ -22,9 +22,26 @@ while str(msg) != 'exit':
             res = str(os.getcwd())
             s.send(res.encode('ascii'))
         elif msg == 'ps':
-            res = psutil.pids()
-            for rr in res:
+            ress = psutil.pids()
+            rs = []
+            for rr in ress:
                 r = psutil.Process(rr)
+                pid = r.pid
+                name = r.name()
+                cpu = r.cpu_percent()
+                mem = r.memory_percent()
+                res = 'pid : ' + str(pid) + ' name : ' + str(name) + ' cpu : ' + str(cpu) + ' mem : ' + str(mem)
+                rs.append(res)
+            s.send(str(rs).encode('ascii'))
+            rs.clear()
+        elif msg == 'connections':
+            res = psutil.net_connections()
+            rs = []
+            for r in res:
+               rs.append(str(r.raddr))
+            s.send(str(rs).encode('ascii'))
+            rs.clear()
+                
         message = s.recv(2000)
         msg = bytes(message).decode('ascii')
     except Exception as e:

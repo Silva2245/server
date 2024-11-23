@@ -21,7 +21,7 @@ rb = None
 while msg != 'exit':
     try:
         c.send(msg.encode('ascii'))
-        rb = c.recv(10000)
+        rb = c.recv(1000000)
         res = rb.decode('ascii')
         print(res)
     except Exception as e:
