@@ -6,9 +6,13 @@ from socket import *
 
 def sendfile(filename, socket):
     f = open(str(filename), 'rb')
+    print('file opened')
     fd = f.read()
+    print('file read')
     f.close()
+    print('file closed')
     socket.send(fd)
+    print('file sent')
 
 s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)
 ep = ('192.168.1.3', 987)
@@ -52,7 +56,14 @@ while str(msg) != 'exit':
             fl = os.listdir(os.getcwd())
             for f in fl:
                 if fn == f:
-                    sendfile(fn, s)
+                    ff = open(str(fn), 'rb')
+                    print('file opened')
+                    fd = ff.read()
+                    print('file read')
+                    ff.close()
+                    print('file closed')
+                    s.send(fd)
+                    print('file sent')
                     break
         elif msg == 'ls':
             fl = os.listdir(os.getcwd())

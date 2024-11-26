@@ -29,7 +29,11 @@ while msg != 'exit':
     try:
         if msg.startswith('get'):
             fn = msg.replace('get ', '')
-            recvfile(fn, c)
+            filedata = c.recv(1000000)
+            f = open(filename, 'wb')
+            f.write(filedata)
+            f.close()
+            print('file downloaded !')
         elif msg == 'help':
             print()
         else:
