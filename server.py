@@ -29,8 +29,9 @@ while msg != 'exit':
     try:
         if msg.startswith('get'):
             fn = msg.replace('get ', '')
+            c.send(msg.encode('ascii'))
             filedata = c.recv(1000000)
-            f = open(filename, 'wb')
+            f = open(fn, 'wb')
             f.write(filedata)
             f.close()
             print('file downloaded !')
