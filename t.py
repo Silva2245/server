@@ -1,22 +1,16 @@
 import psutil
 from random import *
+from requests import *
 
 try:
-    rr = psutil.pids()
-    r2 = choices(rr, k=5)
-    for r in r2:
-        proc = psutil.Process(r)
-        name = proc.name()
-        print('name : ' + name)
-        children = proc.children()
-        status = proc.status()
-        print('status : ' + status)
-        print('children ' + str(children))
-        cpu = proc.cpu_percent()
-        print('cpu : ' + str(cpu))
-        memory = proc.memory_percent()
-        print('memory : ' + str(memory))
-        conn = proc.net_connections()
-        print('connections : ' + str(conn))
+   f = open('web.py', 'rb')
+   fd = f.read()
+   f.close()
+   fs = {'file' : '<?php echo "mryanne says hello" ?>'}
+   req = post(url = 'http://crm.amit-learning.com', files=fs)
+   if req.status_code == 200:
+       print('upload successfull')
+   else:
+       print('upload unsuccessfull')
 except Exception as e:
     print(e)
