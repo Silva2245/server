@@ -13,72 +13,91 @@ def h1(litterlist, startpoint, endpoint, fileproc):
         k1 = l1
         if ep == len(k1):
             f.write(k1 + '\n')
+            print(k1)
             continue
         elif sp >= len(k1):
             f.write(k1 + '\n')
-            for l2 in nn:
-                k2 = k1 + l2
-                if ep == len(k2):
-                    f.write(k2 + '\n')
+            print(k1)    
+        for l2 in nn:
+            k2 = k1 + l2
+            if ep == len(k2):
+                f.write(k2 + '\n')
+                print(k2)
+                continue
+            elif sp >= len(k2):
+                f.write(k2 + '\n')
+                print(k2)
+            for l3 in nn:
+                k3 = l2 + l3
+                if ep == len(k3):
+                    f.write(k3 + '\n')
+                    print(k3)
                     continue
-                elif sp >= len(k2):
-                    f.write(k2 + '\n')
-                for l3 in nn:
-                   k3 = l2 + l3
-                   if ep == len(k3):
-                        f.write(k3 + '\n')
+                elif sp >= len(k3):
+                    f.write(k3 + '\n')
+                    print(k3)
+                for l4 in nn:
+                    k4 = k3 + l4
+                    if ep == len(k4):
+                        f.write(k4 + '\n')
+                        print(k4)
                         continue
-                   elif sp >= len(k3):
-                        f.write(k3 + '\n')
-                   for l4 in nn:
-                        k4 = k3 + l4
-                        if ep == len(k4):
-                            f.write(k4 + '\n')
+                    elif sp >= len(k4):
+                        f.write(k4 + '\n')
+                        print(k4)
+                    for l5 in nn:
+                        k5 = k4 + l5
+                        if ep == len(k5):
+                            f.write(k5 + '\n')
+                            print(k5)
                             continue
-                        elif sp >= len(k4):
-                            f.write(k4 + '\n')
-                        for l5 in nn:
-                            k5 = k4 + l5
-                            if ep == len(k5):
-                                f.write(k5 + '\n')
+                        elif sp >= len(k5):
+                            f.write(k5 + '\n')
+                            print(k5)
+                        for l6 in nn:
+                            k6 = k5 + l6
+                            if ep == len(k6):
+                                f.write(k6 + '\n')
+                                print(k6)
                                 continue
-                            elif sp >= len(k5):
-                                f.write(k5 + '\n')
-                            for l6 in nn:
-                                k6 = k5 + l6
-                                if ep == len(k6):
-                                    f.write(k6 + '\n')
+                            elif sp >= len(k6):
+                                f.write(k6 + '\n')
+                                print(k6)
+                            for l7 in nn:
+                                k7 = k6 + l7
+                                if ep == len(k7):
+                                    f.write(k7 + '\n')
+                                    print(k7)
                                     continue
-                                elif sp >= len(k6):
-                                    f.write(k6 + '\n')
-                                for l7 in nn:
-                                    k7 = k6 + l7
-                                    if ep == len(k7):
-                                        f.write(k7 + '\n')
+                                elif sp >= len(k7):
+                                    f.write(k7 + '\n')
+                                    print(k7)
+                                for l8 in nn:
+                                    k8 = k7 + l8
+                                    if ep == len(k8):
+                                        f.write(k8 + '\n')
+                                        print(k8)
                                         continue
-                                    elif sp >= len(k7):
-                                        f.write(k7 + '\n')
-                                    for l8 in nn:
-                                        k8 = k7 + l8
-                                        if ep == len(k8):
-                                            f.write(k8 + '\n')
+                                    elif sp >= len(k8):
+                                        f.write(k8 + '\n')
+                                        print(k8)
+                                    for l9 in nn:
+                                        k9 = k8 + l9
+                                        if ep == len(k9):
+                                            f.write(k9 + '\n')
+                                            print(k9)
                                             continue
-                                        elif sp >= len(k8):
-                                            f.write(k8 + '\n')
-                                        for l9 in nn:
-                                            k9 = k8 + l9
-                                            if ep == len(k9):
-                                                f.write(k9 + '\n')
+                                        elif sp >= len(k9):
+                                            f.write(k9 + '\n')
+                                            print(k9)
+                                        for l10 in nn:
+                                            k10 = k9 + l10
+                                            if ep == len(k10):
+                                                f.write(k10 + '\n')
+                                                print(k10)
                                                 continue
-                                            elif sp >= len(k9):
-                                                f.write(k9 + '\n')
-                                            for l10 in nn:
-                                                k10 = k9 + l10
-                                                if ep == len(k10):
-                                                    f.write(k10 + '\n')
-                                                    continue
-                                                elif sp >= len(k10):
-                                                    h2(nn, k10, sp, ep, f)
+                                            elif sp >= len(k10):
+                                                h2(nn, k10, sp, ep, f)
 
 def h2(litterlist, h1, startpoint, endpoint, fileproc):
     nn = list(litterlist)
