@@ -3,7 +3,6 @@ import os
 import sys
 import platform
 import psutil
-import subprocess as sp
 import json
 
 def recvfile(filename, socket):
