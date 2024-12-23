@@ -15,7 +15,7 @@ def sendfile(filename, socket):
     print('file sent')
 
 s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)
-ep = ('192.168.1.3', 80)
+ep = ('192.168.1.6', 80)
 s.connect(ep)
 message = s.recv(2000)
 msg = bytes(message).decode('ascii')
